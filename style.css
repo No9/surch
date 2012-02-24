@@ -1,0 +1,77 @@
+body {
+	font-family: "Helvetica neue", Helvetica, sans-serif;
+}
+
+h1 {
+	margin: 20px 0 10px 10px;
+}
+
+a {
+	color: #111;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.container {
+	float: left;
+	width: 400px;
+	height: 1000px;
+}
+
+.searchheader {
+	display: inline-block;
+}
+
+.result {
+	background: #EFEFEF;
+	border-radius: 15px;
+	padding: 10px;
+	margin: 10px;
+}
+
+.result h2 {
+	margin: 5px 0 15px;
+	font-weight: 200;
+}
+
+.result img {
+	border: 1px solid #aaa;
+	padding: 2px;
+}
+
+.light {
+	font-weight: 200;
+}
+
+#searchform {
+	display: inline-block;
+	position: absolute;
+	top: 35px;
+	margin: 0 0 0 10px;
+}
+
+#searchform input { 
+	height: 24px;
+	width: 360px;
+	font-size: 18px;
+}
+
+.searchbutton { 
+	top: -1px;
+	position: absolute;		
+	left: 370px;
+	cursor: pointer;
+}
+
+.desc { 
+	font-size: 13px;
+	margin: 5px 0 15px;
+	color: #666;
+}
+
+.desc b { 
+	color: #000; 
+}

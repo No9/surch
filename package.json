@@ -1,0 +1,14 @@
+{
+  "name": "Surch",
+  "version": "0.0.1",
+  "description": "Simply search your photos, contacts, places, and links.",
+  "repository": {
+    "title": "Simple Search",
+    "type": "app",
+    "static": true,
+    "uses": {
+        "types":["links", "photos", "places", "contacts"],
+        "services":["twitter", "instagram"]
+    }
+  }
+}
