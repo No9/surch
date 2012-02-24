@@ -1,10 +1,13 @@
-var baseUrl = "http://localhost:8042";
+var baseUrl = "";
 
 $(document).ready(function() {
     if(baseUrl === false) window.alert("Couldn't find your locker, you might need to add a config.js (see https://me.singly.com/Me/devdocs/)");
 });
 
 $(function() {
+    
+    $("#search").focus();
+    
     var q = window.location.hash.substr(1);
     $.getJSON(baseUrl + '/Me/search/query', {type:'link', q:q + '*', 'limit':10, 'sort':'true'}, function(data) {
         if(!data || !data.length) return $("#links").html("no links");
