@@ -27,7 +27,7 @@ $(function() {
 
             var wing = 100;
             var rx = new RegExp("(.{0,"+wing+"})("+q+")(.{0,"+wing+"})","i");
-            var match = data.hasOwnProperty('text') ? data[i].data.text.match(rx) : '';
+            var match = data[i].data.hasOwnProperty('text') ? data[i].data.text.match(rx) : '';
             var summary = "";
 
             if (data[i].data.hasOwnProperty('text')) {
