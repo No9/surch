@@ -10,6 +10,13 @@ $(function() {
     $("#search").focus();
     
     var q = window.location.hash.substr(1);
+    
+    if (q) {
+        $(".result").toggle();
+    } else {
+        q = 'fukuoku9000';
+    }
+    
     $.getJSON(baseUrl + '/Me/search/query', {type:'link', q:q + '*', 'limit':10, 'sort':'true'}, function(data) {
         if(!data || !data.length) return $("#links").html("no links");
         var html = "<h2>Links:</h2>";
@@ -18,15 +25,17 @@ $(function() {
             
             var wing = 100;
             var rx = new RegExp("(.{0,"+wing+"})("+q+")(.{0,"+wing+"})","i");
-            var match = data[i].data.text.match(rx);
+            var match = data.hasOwnProperty('text') ? data[i].data.text.match(rx) : '';
             var summary = "";
-            if(!match || match.length <= 1)
-            {
-                summary = data.text.substr(0,(wing*2))+"…"
-            }else{
-                summary = match[1]+"<b>"+match[2]+"</b>"+match[3];
-                if(match[1].length == wing) summary = "…"+summary;
-                if(match[3].length == wing) summary += "…";
+            if (data.hasOwnProperty('text')) {
+                if(!match || match.length <= 1)
+                {
+                    summary = data.hasOwnProperty('text') ? data.text.substr(0,(wing*2))+"…" : '';
+                }else{
+                    summary = match[1]+"<b>"+match[2]+"</b>"+match[3];
+                    if(match[1].length == wing) summary = "…"+summary;
+                    if(match[3].length == wing) summary += "…";
+                }
             }
             
             html += "<div>" +

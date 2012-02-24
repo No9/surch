@@ -30,6 +30,7 @@ a:hover {
 	border-radius: 15px;
 	padding: 10px;
 	margin: 10px;
+	display: none;
 }
 
 .result h2 {
