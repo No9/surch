@@ -1,4 +1,5 @@
-var baseUrl = "";
+//var baseUrl = "http://localhost:8042";
+var baseUrl = '';
 
 $(document).ready(function() {
     if(baseUrl === false) window.alert("Couldn't find your locker, you might need to add a config.js (see https://me.singly.com/Me/devdocs/)");
