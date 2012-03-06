@@ -80,6 +80,11 @@ $(function() {
         $("#places").append(html);
     });
 
+	var remote = 'https://api.duckduckgo.com/?q='+encodeURIComponent(q)+'&format=json';
+	$.get(remote,function(j) {},'jsonp')
+          .success(function(data) { ddgCallback(data); } );
+			
+
     $("#searchform").submit(function(e) {
         e.preventDefault();
         searchIt();
@@ -96,4 +101,8 @@ $(function() {
         window.location = window.location.origin + window.location.pathname + '#' + $("#search").val();
         window.location.reload(true);
     }
+    
+    var ddgCallback = function(json) {
+  			alert(JSON.stringify(json));
+  		}
 });
