@@ -39,6 +39,19 @@ a:hover {
   font-weight: 200;
 }
 
+#links
+{
+	max-height: 220px;
+	overflow:auto;
+}
+
+#ddg
+{
+	max-height: 220px;
+	overflow:auto;
+}
+
+
 .result .photo {
   border: 1px solid #aaa;
   padding: 2px;
@@ -60,6 +73,7 @@ a:hover {
   width: 360px;
   font-size: 18px;
 }
+
 
 .searchbutton {
   top: -1px;
