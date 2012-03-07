@@ -103,39 +103,24 @@ $(function() {
     }
     
     var ddgCallback = function(json) {
-    	
     	$("#loading-ddg").fadeOut('fast');
-    	$('#ddg').append(JSON.stringify(json));
-  		
-  			var htmlizer = {
-      heading:function(container) {
-        var div=$(divtag);
-        $(atag).css({'color':'#E44'}).attr('href',json.AbstractURL).text(json.Heading).appendTo(div);
-        if (json.AbstractURL && json.AbstractSource) {
-          ($('<span/>').html('More at ').append($(atag).attr('href',json.AbstractURL).text(json.AbstractSource))).appendTo(div);
-        }
-        div.appendTo(ddgBox);
-      },
-      relatedTopic:function(container, item) {
-        if (item.Result) $(divtag).css(line).css(lineStyle).html($(item.Result)).appendTo(container).hover(fnOver,fnOut);
-        else if (item.Topics) {
-          $(divtag).css(line).css({'border-bottom':'1px solid red'}).html(item.Name).appendTo(container);
-          $.each(item.Topics,function(i,sub){
-            var div=$(divtag).css(line).css(lineStyle).css(subStyle).hover(fnOver,fnOut);
-            if (sub.Icon && sub.Icon.URL) {
-              $(imgtag).attr({src:sub.Icon.URL,width:'16',height:'16'}).appendTo(div);
-            }
-            $(sub.Result).appendTo(div)
-            div.appendTo(container);
-          });
-        }
-      },
-      results:function(container, item) {
-        var div=$(divtag);
-        if (item.Icon) div.append($(divtag).addClass('ci').css({float:'left'}).append($(imgtag).attr({'src':item.Icon.URL,width:'16',height:'16'})));
-        if (item.Result) div.append($(divtag).attr('class','cli').css({'margin-left':'28px','word-wrap':'break-word'}).html(item.Result));
-        $(container).append(div);
-      }
-    };
-  }
+    	$('#ddg').empty();
+  		$.each(json.RelatedTopics, function()
+		{
+			console.log("name: " + this.Name)
+			if(this.Name === undefined)
+			{
+				if(this.Text !== undefined)
+				{
+					$('#ddg').append("<div id='relatedTopic'>" + this.Result + "</div>");
+				}
+			}else{
+				$('#ddg').append("<h1>" + this.Name + "</h1>");
+				$.each(this.Topics, function()
+				{
+					$('#ddg').append("<div id='relatedTopic'>" + this.Result + "</div>");
+				});
+			}
+		});
+  	}
 });
