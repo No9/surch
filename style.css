@@ -17,7 +17,7 @@ a:hover {
 
 .container {
   float: left;
-  width: 400px;
+  width: 100%;
   height: 1000px;
 }
 
@@ -31,26 +31,13 @@ a:hover {
   padding: 10px;
   margin: 10px;
   display: none;
-  min-height: 138px;
+  min-height: 30px;
 }
 
 .result h2 {
   margin: 5px 0 15px;
   font-weight: 200;
 }
-
-#links
-{
-	max-height: 220px;
-	overflow:auto;
-}
-
-#ddg
-{
-	max-height: 220px;
-	overflow:auto;
-}
-
 
 .result .photo {
   border: 1px solid #aaa;
